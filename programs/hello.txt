@@ -1,8 +1,9 @@
 package main
 
 func main() {
+	modulo := 2
 	for i := 0; i < 20; i++ {
-		if i % 2 == 0 {
+		if i % modulo == 0 {
 			println("Hello")
 		}
 	}

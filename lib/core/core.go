@@ -20,7 +20,6 @@ func CorrectAndRun(input, output string) string {
 	}
 	defer infd.Close()
 
-	lineNum := 1
 	syntax := []string{}
 	scanner := bufio.NewScanner(infd)
 	for scanner.Scan() {
@@ -29,8 +28,7 @@ func CorrectAndRun(input, output string) string {
 		}
 		line := scanner.Text()
 		result := suggest(line)
-		syntax = append(syntax, fmt.Sprintf("%d\t%s", lineNum, result))
-		lineNum++
+		syntax = append(syntax, result)
 	}
 
 	output = path.Join(cwd, "syntax", output)
@@ -39,7 +37,14 @@ func CorrectAndRun(input, output string) string {
 		return fmt.Sprintf("Unable to open file %q\n", output)
 	}
 	defer outfd.Close()
-	json.NewEncoder(outfd).Encode(syntax)
+
+	syntaxon := Syntax{
+		Language: "Go",
+		Sourcefile: input,
+		Syntaxfile: output,
+		Syntax: syntax,
+	}
+	json.NewEncoder(outfd).Encode(syntaxon)
 
 	return "Success!"
 }
