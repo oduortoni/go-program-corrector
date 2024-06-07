@@ -1,4 +1,4 @@
-# Program suggestion
+# syntax suggestion
 
 ## Description
 
