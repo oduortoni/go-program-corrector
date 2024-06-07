@@ -1,5 +1,7 @@
-# Go program correcter
+# Program suggestion
 
 ## Description
 
-The program checks whether a file passed in is a go program. If there is any syntax error, the program tries to rectify it and then finally runs it.
+The program checks whether a file passed in is a go program.
+
+The program tries to give all possible alternatives for golang syntax.

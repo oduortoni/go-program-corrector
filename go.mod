@@ -1,3 +1,3 @@
-module gpcorrect
+module github.com/oduortoni/syntax-suggest
 
-go 1.18
+go 1.22.1

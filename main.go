@@ -1,10 +1,12 @@
 package main
 
 import (
-	"gpcorrect/lib/core"
+	"fmt"
+
+	"github.com/oduortoni/syntax-suggest/lib/core"
 )
 
 func main() {
-	output := core.CorrectAndRun("programs/hello.txt")
-	println(output)
+	output := core.CorrectAndRun("hello.txt", "hello.syntax")
+	fmt.Printf("%s\n", output)
 }
